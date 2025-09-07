@@ -1,15 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Jugador : MonoBehaviour
 {
     [Header("Configuracion")]
     [SerializeField] private float vida = 5f;
 
-    public void ModificarVida(float puntos)
+    [SerializeField]
+    private UnityEvent<float> OnLivesChanged;
+
+    [SerializeField]
+    private UnityEvent<string> OnTextChanged;
+
+    private void Start()
     {
+        OnLivesChanged.Invoke(vida);        
+        OnTextChanged.Invoke("Vidas: " + vida.ToString("0"));
+    }
+
+
+
+    public void ModificarVida(float puntos)
+    {        
         vida += puntos;
+        Debug.Log("Modificando vida: " + puntos + " | Vida actual: " + vida);
+        OnLivesChanged.Invoke(vida);
+        OnTextChanged.Invoke("Vidas: " + vida.ToString("0"));
         Debug.Log(EstasVivo());
     }
 
