@@ -582,9 +582,10 @@ GameObject:
   - component: {fileID: 913008950}
   - component: {fileID: 913008951}
   - component: {fileID: 913008952}
+  - component: {fileID: 913008953}
   m_Layer: 0
   m_Name: Jugador
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -771,6 +772,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &913008953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913008944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63b7b1463384a3442840e1f306ab6758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 5
 --- !u!1 &973133372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1926,8 @@ GameObject:
   - component: {fileID: 2065465791}
   - component: {fileID: 2065465789}
   - component: {fileID: 2065465793}
+  - component: {fileID: 2065465794}
+  - component: {fileID: 2065465795}
   m_Layer: 6
   m_Name: Enemigo
   m_TagString: Untagged
@@ -1945,7 +1961,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2065465791
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2053,6 +2069,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.7163346}
   m_Size: {x: 2.3977737, y: 4.678442}
   m_Direction: 0
+--- !u!114 &2065465794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065465788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d000971cb9ac3489a9b9cada328677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 2
+  jugador: {fileID: 913008948}
+--- !u!114 &2065465795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065465788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245d55861f020db45951b31fac57ea0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puntos: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
