@@ -22,8 +22,11 @@ public class EnemigoIA : MonoBehaviour
 
     private void FixedUpdate()
     {
-        direccion = new Vector2(jugador.position.x - transform.position.x, 0f).normalized;
-        miRigidbody2D.MovePosition(miRigidbody2D.position + direccion * (velocidad * Time.fixedDeltaTime));
+        // Calculamos solo la dirección en X
+        float dirX = (jugador.position.x - transform.position.x) > 0 ? 1f : -1f;
+
+        // Mantener la velocidad actual en Y (gravedad, saltos, caídas)
+        miRigidbody2D.velocity = new Vector2(dirX * velocidad, miRigidbody2D.velocity.y);
     }
 
 }
