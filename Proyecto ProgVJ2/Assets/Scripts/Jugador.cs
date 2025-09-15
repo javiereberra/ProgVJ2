@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class Jugador : MonoBehaviour
 {
     [Header("Configuracion")]
@@ -13,6 +14,9 @@ public class Jugador : MonoBehaviour
 
     [SerializeField]
     private UnityEvent<string> OnTextChanged;
+
+    [SerializeField] private GameManager gameManager; //referencia a GameManager
+
 
     private void Start()
     {
@@ -28,6 +32,12 @@ public class Jugador : MonoBehaviour
         Debug.Log("Modificando vida: " + puntos + " | Vida actual: " + vida);
         OnLivesChanged.Invoke(vida);
         OnTextChanged.Invoke("Vidas: " + vida.ToString("0"));
+
+        if (puntos < 0 && gameManager != null)
+        {
+            gameManager.RestarTiempo(Mathf.Abs(puntos) * 10f);
+        }
+
         Debug.Log(EstasVivo());
     }
 
