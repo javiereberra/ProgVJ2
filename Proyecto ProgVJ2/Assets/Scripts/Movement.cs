@@ -39,8 +39,13 @@ public class Mover : MonoBehaviour
         moverHorizontal = Input.GetAxis("Horizontal");
         direccion = new Vector2(moverHorizontal, 0f);
 
-        int velocidadX = (int)miRigidbody2D.velocity.x;
-        miSprite.flipX = velocidadX < 0;
+        //int velocidadX = (int)miRigidbody2D.velocity.x;
+        //miSprite.flipX = velocidadX < 0;
+        if (moverHorizontal != 0)
+        {
+            miSprite.flipX = moverHorizontal < 0;
+        }
+        int velocidadX = Mathf.Abs((int)miRigidbody2D.velocity.x);
         miAnimator.SetInteger("Velocidad", velocidadX);
 
         miAnimator.SetBool("EnAire", !EnContactoConPlataforma());
@@ -49,7 +54,8 @@ public class Mover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        miRigidbody2D.AddForce(direccion * velocidad);
+        //miRigidbody2D.AddForce(direccion * velocidad);
+        miRigidbody2D.velocity = new Vector2(direccion.x * velocidad, miRigidbody2D.velocity.y);
     }
 
     private bool EnContactoConPlataforma()
