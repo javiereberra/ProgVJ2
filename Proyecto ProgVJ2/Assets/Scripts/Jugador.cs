@@ -17,13 +17,14 @@ public class Jugador : MonoBehaviour
 
     [SerializeField] private GameManager gameManager; //referencia a GameManager
 
+    public int diamantes = 0;
 
     private void Start()
     {
         OnLivesChanged.Invoke(vida);        
         OnTextChanged.Invoke("Vidas: " + vida.ToString("0"));
     }
-
+    
 
 
     public void ModificarVida(float puntos)
