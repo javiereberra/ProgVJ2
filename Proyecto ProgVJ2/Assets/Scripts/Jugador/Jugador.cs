@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 public class Jugador : MonoBehaviour
@@ -53,5 +54,11 @@ public class Jugador : MonoBehaviour
         if (!collision.gameObject.CompareTag("Meta")) { return; }
 
         Debug.Log("GANASTE");
+
+        //pasar siguiente escena
+        int indiceEscenaActual = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(indiceEscenaActual + 1);
     }
+
+    
 }
