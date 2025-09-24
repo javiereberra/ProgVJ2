@@ -20,16 +20,18 @@ public class Jugador : MonoBehaviour
 
     public int diamantes = 0;
 
+    //inventario simple de llaves
+    public List<int> llaves = new List<int>();
+
     private void Start()
     {
-        OnLivesChanged.Invoke(vida);        
+        OnLivesChanged.Invoke(vida);
         OnTextChanged.Invoke("Vidas: " + vida.ToString("0"));
     }
-    
 
 
     public void ModificarVida(float puntos)
-    {        
+    {
         vida += puntos;
         Debug.Log("Modificando vida: " + puntos + " | Vida actual: " + vida);
         OnLivesChanged.Invoke(vida);
@@ -60,5 +62,24 @@ public class Jugador : MonoBehaviour
         SceneManager.LoadScene(indiceEscenaActual + 1);
     }
 
-    
+    //método para agregar llaves
+    public void AgregarLlave(int idLlave)
+    {
+        if (!llaves.Contains(idLlave))
+        {
+            llaves.Add(idLlave);
+            Debug.Log($"Jugador: agregó llave {idLlave}. Llaves: {string.Join(",", llaves)}");
+        }
+        else
+        {
+            Debug.Log($"Jugador: ya tiene la llave {idLlave}");
+        }
+    }
+
+    // Consultar si tiene una llave
+    public bool TieneLlave(int idLlave)
+    {
+        return llaves.Contains(idLlave);
+    }
+
 }
