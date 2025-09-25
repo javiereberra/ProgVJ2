@@ -50,7 +50,11 @@ public class PuzzleCola : MonoBehaviour
     {
         if (porton != null)
         {
-            porton.SetActive(false); // Desactivamos el muro para que el jugador pase
+            Porton portonScript = porton.GetComponent<Porton>();
+            if (portonScript != null)
+            {
+                portonScript.Abrir(); // Llamamos al método de la coroutine para deslizarlo
+            }
         }
     }
 
