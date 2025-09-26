@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &65949347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4810195304181195784, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+  m_PrefabInstance: {fileID: 6547193696688845297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &80109324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2484616538861456757, guid: 3f0813eef076d2244b7c3c8904944a0a, type: 3}
@@ -1039,6 +1044,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9039800672122284982, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
   m_PrefabInstance: {fileID: 6547193696688845297}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &913008949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65949347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534f6113d3e38df45a9993d718cb71eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experiencia: 0
+  experienciaProximoNivel: 10
+  escalarExperiencia: 50
 --- !u!1 &973133372
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,7 +3426,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4810195304181195784, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 913008949}
   m_SourcePrefab: {fileID: 100100000, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
 --- !u!1001 &8205202424108780804
 PrefabInstance:
