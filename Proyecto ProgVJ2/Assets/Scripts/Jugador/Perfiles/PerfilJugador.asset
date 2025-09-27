@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b11c22f244a25419f4042aa14443b6, type: 3}
   m_Name: PerfilJugador
   m_EditorClassIdentifier: 
+  vida: 4
+  diamantes: 9
   experienciaProximoNivel: 40
   escalarExperiencia: 10
+  nivel: 3
   experiencia: 30

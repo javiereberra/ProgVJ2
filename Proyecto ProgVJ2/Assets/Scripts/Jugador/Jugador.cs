@@ -7,35 +7,68 @@ using UnityEngine.SceneManagement;
 
 public class Jugador : MonoBehaviour
 {
-    [Header("Configuracion")]
-    [SerializeField] private float vida = 5f;
+    [SerializeField]
+    private PerfilJugador perfilJugador;
+
+    public PerfilJugador PerfilJugador { get => perfilJugador; }
+
+    [Header("Configuracion")] 
 
     [SerializeField]
     private UnityEvent<float> OnLivesChanged;
+    [SerializeField] 
+    private UnityEvent<int> OnDiamantesChanged;
+    [SerializeField]
+    private UnityEvent<int> OnNivelChanged;
+
 
     [SerializeField]
     private UnityEvent<string> OnTextChanged;
+    [SerializeField]
+    private UnityEvent<string> OnDiamantesTextChanged;
+    [SerializeField]
+    private UnityEvent<string> OnNivelTextChanged;
 
     [SerializeField] private GameManager gameManager; //referencia a GameManager
 
-    public int diamantes = 0;
-
+    
     //inventario simple de llaves
     public List<int> llaves = new List<int>();
 
     private void Start()
     {
-        OnLivesChanged.Invoke(vida);
-        OnTextChanged.Invoke("Vidas: " + vida.ToString("0"));
+        OnLivesChanged.Invoke(perfilJugador.Vida);
+        OnTextChanged.Invoke("Vidas: " + perfilJugador.Vida.ToString("0"));
+        OnDiamantesChanged.Invoke(perfilJugador.Diamantes);
+        OnDiamantesTextChanged.Invoke("Diamantes: " +perfilJugador.Diamantes.ToString("0"));
+        OnNivelChanged.Invoke(perfilJugador.Nivel);
+        OnNivelTextChanged.Invoke("Nivel: " + perfilJugador.Nivel.ToString("0"));
+
+
     }
 
+    public void AgregarDiamante(int cantidad)
+    {
+        perfilJugador.Diamantes += cantidad;
+        OnDiamantesChanged.Invoke(perfilJugador.Diamantes);         
+        OnDiamantesTextChanged.Invoke("Diamantes: " + perfilJugador.Diamantes);
+
+    }
+
+    public void SubirNivel(int cantidad)
+    {
+        perfilJugador.Nivel += cantidad;
+        OnNivelChanged.Invoke(perfilJugador.Nivel);
+        OnNivelTextChanged.Invoke("Nivel: " + perfilJugador.Nivel);
+
+    }
 
     public void ModificarVida(float puntos)
     {
-        vida += puntos;
-        Debug.Log("Modificando vida: " + puntos + " | Vida actual: " + vida);
-        OnLivesChanged.Invoke(vida);
-        OnTextChanged.Invoke("Vidas: " + vida.ToString("0"));
+        perfilJugador.Vida += puntos;
+        Debug.Log("Modificando vida: " + puntos + " | Vida actual: " + perfilJugador.Vida);
+        OnLivesChanged.Invoke(perfilJugador.Vida);
+        OnTextChanged.Invoke("Vidas: " + perfilJugador.Vida.ToString("0"));
 
         if (puntos < 0 && gameManager != null)
         {
@@ -48,7 +81,7 @@ public class Jugador : MonoBehaviour
 
     private bool EstasVivo()
     {
-        return vida > 0;
+        return perfilJugador.Vida > 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -81,5 +114,7 @@ public class Jugador : MonoBehaviour
     {
         return llaves.Contains(idLlave);
     }
+
+   
 
 }

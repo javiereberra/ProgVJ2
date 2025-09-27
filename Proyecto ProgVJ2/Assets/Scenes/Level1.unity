@@ -230,6 +230,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   miTexto: {fileID: 1900928601}
   labelTiempo: {fileID: 1503939679}
+  labelDiamantes: {fileID: 843412668}
+  labelNivel: {fileID: 899411136}
 --- !u!114 &336807177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,9 +1100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DIAMANTES
-
-'
+  m_text: diamantes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1332,7 +1332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534f6113d3e38df45a9993d718cb71eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perfilJugador: {fileID: 11400000, guid: 191c00ede906f904db90e39427a048e8, type: 2}
 --- !u!1 &973133372
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,9 +3653,97 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1887176528}
     - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: perfilJugador
+      value: 
+      objectReference: {fileID: 11400000, guid: 191c00ede906f904db90e39427a048e8, type: 2}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: textoDiamantes
+      value: 
+      objectReference: {fileID: 843412668}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnNivelTextChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesTextChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
       propertyPath: OnTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 336807176}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 336807176}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnNivelTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 336807176}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnNivelTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActualizarDiamantes
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 336807176}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnNivelTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActualizarNivelHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActualizarDiamantesHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HUDController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnNivelTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HUDController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HUDController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnNivelTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6159410084465392160, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
+      propertyPath: OnDiamantesTextChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9039800672122284982, guid: c7911b88e20673843ae610b8fa958a9e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -21.6
