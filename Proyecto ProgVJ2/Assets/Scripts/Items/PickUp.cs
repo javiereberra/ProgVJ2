@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PickUp : MonoBehaviour
 {
     [Header("Configuración")]
     [SerializeField] private int experienciaPorDiamante = 10;
+    
+
 
 
 
@@ -19,14 +22,15 @@ public class PickUp : MonoBehaviour
             if (jugador != null)
             {
                 jugador.diamantes += 1;
-                
+
+              
             }
 
             if (progresion != null)
             {
                 // Sumamos experiencia
                 progresion.GanarExperiencia(experienciaPorDiamante);
-                Debug.Log("Experiencia actual: " + progresion.experiencia);
+                Debug.Log("Experiencia actual: " + progresion.PerfilJugador.Experiencia);
             }
 
 
