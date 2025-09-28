@@ -4,6 +4,7 @@ public class Llave : MonoBehaviour
 {
     [SerializeField] public int idLlave; // se asigna en el Inspector
 
+    //metodo para recolectar las llaves según Id
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;

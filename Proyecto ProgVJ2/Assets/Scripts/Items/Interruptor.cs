@@ -5,9 +5,9 @@ public class Interruptor : MonoBehaviour
 {
     [Header("Configuración")]
     public int idInterruptor = 1;           // ID del interruptor (1, 2, 3)
-    public float tiempoActivado = 20f;      // Duración del cooldown en segundos
-    public Sprite spriteActivado;           // Sprite cuando está activado
-    public Sprite spriteDesactivado;        // Sprite cuando está desactivado
+    public float tiempoActivado = 20f;      // Duración del cooldown
+    public Sprite spriteActivado;           // Sprite activado
+    public Sprite spriteDesactivado;        // Sprite desactivado
 
     private bool activado = false;
     private SpriteRenderer miSpriteRenderer;

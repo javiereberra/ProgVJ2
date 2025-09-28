@@ -5,7 +5,7 @@ public class PuzzleCola : MonoBehaviour
 {
     [Header("Configuración")]
     public List<Interruptor> interruptoresOrdenados; // Lista con los interruptores en orden 1?2?3
-    public GameObject porton;                         // Muro/portón que se abre al completar el puzzle
+    public GameObject porton;                         // portón que se abre al completar el puzzle
 
     private Queue<Interruptor> cola;                 // Cola para manejar la secuencia
     private bool completado = false;
@@ -47,15 +47,13 @@ public class PuzzleCola : MonoBehaviour
 
     // Método para abrir el portón
     private void AbrirPorton()
-    {
-        if (porton != null)
-        {
+    {        
+        
             Porton portonScript = porton.GetComponent<Porton>();
             if (portonScript != null)
             {
                 portonScript.Abrir(); // Llamamos al método de la coroutine para deslizarlo
-            }
-        }
+            }        
     }
 
     // Método para resetear todos los interruptores y la cola

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Progresion : MonoBehaviour
 {
-
+    //referencia a jugador
     private Jugador jugador;
 
     private void Awake()
@@ -12,7 +12,7 @@ public class Progresion : MonoBehaviour
         jugador = GetComponent<Jugador>();
     }
     
-
+    //metodo para ganar experiencia y subir de nivel
     public void GanarExperiencia(int nuevaExpriencia)
     {
         PerfilJugador perfilJugador = jugador.PerfilJugador;
@@ -25,6 +25,7 @@ public class Progresion : MonoBehaviour
         }
     }
 
+    //subir de nivel
     private void SubirNivel()
     {
         PerfilJugador perfilJugador = jugador.PerfilJugador;

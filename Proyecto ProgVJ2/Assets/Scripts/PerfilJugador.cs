@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PerfilJugador", menuName = "Scriptable Objects/PerfilJugador")]
 public class PerfilJugador : ScriptableObject
 {
+    //Agregamos de jugador "vida" y "Diamantes" con el método para acceder y modificar sus valores
     [Header("Configuración de Jugador")]
     [Header("Vida")]
     [SerializeField] private float vida = 5f;
@@ -15,9 +16,14 @@ public class PerfilJugador : ScriptableObject
     public int diamantes = 0;
     public int Diamantes { get => diamantes; set => diamantes = value; }
 
+    [Header("Movimiento")]
+    public float velocidad = 5f;
+    public float Velocidad { get => velocidad; set => velocidad = value; }
+    public float fuerzaSalto = 5f;
+    public float FuerzaSalto { get => fuerzaSalto; set => fuerzaSalto = value; }
 
 
-
+    //Todas las variables de la progresión también para ser editadas
     [Header("Configuración de Experiencia")]
     [Tooltip("Cuánta xp necesita para subir de nivel")]
     [SerializeField]   

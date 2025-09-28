@@ -4,7 +4,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI miTexto; // referencia al HUD
-    [SerializeField] private float tiempoInicial = 300f; // 5 minutos = 300 segundos
+    [SerializeField] private float tiempoInicial = 300f; // 5 minutos
 
     private float tiempoActual;
 
@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         ActualizarHUD();
     }
 
+    //actualiza el paso del tiempo
     void Update()
     {
         if (tiempoActual > 0)
@@ -27,11 +28,13 @@ public class GameManager : MonoBehaviour
 
     void ActualizarHUD()
     {
+        //conversion de segundos en minutos/segundos
         int minutos = Mathf.FloorToInt(tiempoActual / 60);
         int segundos = Mathf.FloorToInt(tiempoActual % 60);
         miTexto.text = string.Format("{0:00}:{1:00}", minutos, segundos);
     }
 
+    //método para restar tiempo por penalizaciòn
     public void RestarTiempo(float segundos)
     {
         tiempoActual -= segundos;

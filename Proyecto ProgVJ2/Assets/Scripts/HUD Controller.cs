@@ -5,11 +5,13 @@ using TMPro;
 
 public class HUDController : MonoBehaviour
 {
+    //para referenciar los labels
     [SerializeField] TextMeshProUGUI miTexto;
     [SerializeField] TextMeshProUGUI labelTiempo;
     [SerializeField] TextMeshProUGUI labelDiamantes;
     [SerializeField] TextMeshProUGUI labelNivel;
 
+    //Métodos para actualizar Vidas(Texto), tiempo, diamantes y nivel como string
     public void ActualizarTextoHUD(string nuevoTexto)
     {
         Debug.Log("SE LLAMA " + nuevoTexto);

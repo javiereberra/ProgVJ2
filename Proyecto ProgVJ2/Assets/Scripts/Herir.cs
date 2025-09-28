@@ -8,6 +8,7 @@ public class Herir : MonoBehaviour
     [Header("Configuracion")]
     [SerializeField] float puntos = 1f;
 
+    //chequear colision con el tag player y restar puntos
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))

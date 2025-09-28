@@ -14,7 +14,7 @@ public class Porton : MonoBehaviour
     {
         posicionInicial = transform.position;
     }
-
+    //metodo para abrir el portón con coroutine
     public void Abrir()
     {
         if (!abierto)
@@ -23,7 +23,7 @@ public class Porton : MonoBehaviour
             StartCoroutine(MoverPorton());
         }
     }
-
+    //Coroutine para abrir el portón
     private IEnumerator MoverPorton()
     {
         Vector3 destino = posicionInicial + desplazamiento;
