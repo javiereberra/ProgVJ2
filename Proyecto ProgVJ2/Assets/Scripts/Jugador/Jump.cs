@@ -43,6 +43,10 @@ public class Saltar : MonoBehaviour
     // Codigo ejecutado cuando el jugador colisiona con otro objeto
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        Debug.Log("Colisionando con: " + collision.gameObject.name + ", Tag: " + collision.gameObject.tag);
+
+
         if (collision.gameObject.CompareTag("Suelo"))  // <- solo si toca el suelo
         {
             puedoSaltar = true;
