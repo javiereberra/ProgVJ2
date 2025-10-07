@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b11c22f244a25419f4042aa14443b6, type: 3}
   m_Name: PerfilJugador
   m_EditorClassIdentifier: 
-  vida: -5
-  diamantes: 61
+  vida: 5
+  diamantes: 0
   velocidad: 5
   fuerzaSalto: 13
-  experienciaProximoNivel: 80
+  experienciaProximoNivel: 50
   escalarExperiencia: 10
-  nivel: 7
-  experiencia: 60
+  nivel: 1
+  experiencia: 0
