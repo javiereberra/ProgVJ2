@@ -7,6 +7,8 @@ TagManager:
   - Meta
   - Suelo
   - Items
+  - Boss
+  - Proyectil
   layers:
   - Default
   - TransparentFX
@@ -16,9 +18,9 @@ TagManager:
   - UI
   - Enemigos
   - Pisos
-  - 
-  - 
-  - 
+  - Proyectil
+  - Boss
+  - Estructuras
   - 
   - 
   - 
