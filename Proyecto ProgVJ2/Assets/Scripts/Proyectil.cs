@@ -9,17 +9,36 @@ public class Proyectil : MonoBehaviour
     [SerializeField] float tiempoVida = 5f;      // para destruirlo después de un tiempo
 
     private Rigidbody2D rb;
+    private float tiempoRestante;
 
-    private void Start()
+    //PROBANDO//
+    //private void Start()
+    //{
+    //    rb = GetComponent<Rigidbody2D>();
+
+    // le damos impulso inicial hacia abajo (puede ser hacia otra dirección si querés)
+    //    rb.velocity = Vector2.down * velocidad;
+
+    // destruir automáticamente después de un tiempo
+    //    Destroy(gameObject, tiempoVida);
+    //}
+    private void OnEnable()
     {
-        rb = GetComponent<Rigidbody2D>();
+        if (rb == null)
+            rb = GetComponent<Rigidbody2D>();
 
-        // le damos impulso inicial hacia abajo (puede ser hacia otra dirección si querés)
         rb.velocity = Vector2.down * velocidad;
-
-        // destruir automáticamente después de un tiempo
-        Destroy(gameObject, tiempoVida);
+        tiempoRestante = tiempoVida;
     }
+
+    private void Update()
+    {
+        tiempoRestante -= Time.deltaTime;
+        if (tiempoRestante <= 0)
+            gameObject.SetActive(false);
+    }
+    //PROBANDO//
+
 
     // si choca con algo, se destruye (Herir ya se encarga de hacer daño)
     private void OnCollisionEnter2D(Collision2D collision)
@@ -27,7 +46,8 @@ public class Proyectil : MonoBehaviour
         // evitar destruirse si toca otro proyectil o el propio jefe
         if (!collision.gameObject.CompareTag("Boss"))
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

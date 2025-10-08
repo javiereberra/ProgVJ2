@@ -6,7 +6,8 @@ public class JefeFinal : MonoBehaviour
 {
     [SerializeField] float tiempoEntreDisparos;
     [SerializeField] float tiempoEntreEmbestidas;
-    
+
+    [SerializeField] private ObjectPooler poolProyectiles; 
 
     [SerializeField] GameObject prefabProyectil;
     [SerializeField] Transform puntoSpawnProyectil;
@@ -111,14 +112,32 @@ public class JefeFinal : MonoBehaviour
         }
     }
 
+    //private IEnumerator Disparar()
+    //{
+    //    for (int i = 0; i < 3; i++)
+    //    {
+    //        yield return new WaitForSeconds(0.5f);
+    //        Instantiate(prefabProyectil, puntoSpawnProyectil.position, Quaternion.identity);
+    //    }
+    //}
+
     private IEnumerator Disparar()
     {
         for (int i = 0; i < 3; i++)
         {
             yield return new WaitForSeconds(0.5f);
-            Instantiate(prefabProyectil, puntoSpawnProyectil.position, Quaternion.identity);
+
+            GameObject proyectil = poolProyectiles.GetPooledObject();
+            if (proyectil != null)
+            {
+                proyectil.transform.position = puntoSpawnProyectil.position;
+                proyectil.transform.rotation = Quaternion.identity;
+                proyectil.SetActive(true);
+            }
         }
     }
+
+
 
     private IEnumerator Embestida()
     {
