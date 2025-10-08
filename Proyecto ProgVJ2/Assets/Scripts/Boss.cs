@@ -98,7 +98,7 @@ public class JefeFinal : MonoBehaviour
     {
         float tiempoEmbestida = 2f;
         float tiempoInicio = Time.time;
-        float velocidadEmbestida = -10f; // Ajusta la velocidad de la embestida según tus necesidades
+        float velocidadEmbestida = -12f; // Ajusta la velocidad de la embestida según tus necesidades
 
         Vector2 posicionInicial = transform.position;
         Vector2 posicionObjetivo = new Vector2(transform.position.x, transform.position.y + velocidadEmbestida);
