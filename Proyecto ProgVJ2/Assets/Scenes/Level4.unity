@@ -702,7 +702,7 @@ GameObject:
   - component: {fileID: 1521508766}
   m_Layer: 0
   m_Name: Trampas
-  m_TagString: Untagged
+  m_TagString: Trampas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1535,6 +1535,7 @@ MonoBehaviour:
   puntoSpawnProyectil: {fileID: 331143838}
   puntoA: {fileID: 956912590}
   puntoB: {fileID: 1247309011}
+  vida: 4
   velocidad: 3
 --- !u!70 &1778858207
 CapsuleCollider2D:

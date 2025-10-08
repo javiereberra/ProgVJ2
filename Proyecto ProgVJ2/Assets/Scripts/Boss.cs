@@ -15,10 +15,15 @@ public class JefeFinal : MonoBehaviour
     public Transform puntoA;
     public Transform puntoB;
 
+    [Header("Configuración de Vida")]
+    public float vida = 3f;
+
     [Header("Configuración de Movimiento")]
     public float velocidad = 3f;
 
     private Transform objetivo;
+
+    private bool dañoRecibidoEnEmbestida = false;
 
     private bool atacando = false;
 
@@ -38,6 +43,27 @@ public class JefeFinal : MonoBehaviour
         StartCoroutine(VerificarAtaque());
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Trampas"))
+        {
+            if (!dañoRecibidoEnEmbestida)
+            {
+                vida -= 1f;
+                dañoRecibidoEnEmbestida = true;
+                Debug.Log("Boss tocó una trampa! Vida restante: " + vida);
+
+                // Animación o efecto visual de daño (sin interrumpir embestida)
+                //miAnimator.SetTrigger("Daño");
+
+                if (vida <= 0)
+                {
+                    Debug.Log("El Boss ha muerto");
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
 
     private IEnumerator Movimiento()
     {
@@ -96,6 +122,8 @@ public class JefeFinal : MonoBehaviour
 
     private IEnumerator Embestida()
     {
+        dañoRecibidoEnEmbestida = false;
+
         float tiempoEmbestida = 2f;
         float tiempoInicio = Time.time;
         float velocidadEmbestida = -12f; // Ajusta la velocidad de la embestida según tus necesidades

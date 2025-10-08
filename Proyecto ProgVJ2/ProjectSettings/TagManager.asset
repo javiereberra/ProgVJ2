@@ -9,6 +9,7 @@ TagManager:
   - Items
   - Boss
   - Proyectil
+  - Trampas
   layers:
   - Default
   - TransparentFX
