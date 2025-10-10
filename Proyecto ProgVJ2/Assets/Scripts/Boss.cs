@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JefeFinal : MonoBehaviour
 {
+    [Header("Configuración de Ataques")]
     [SerializeField] float tiempoEntreDisparos;
     [SerializeField] float tiempoEntreEmbestidas;
 
@@ -26,24 +27,22 @@ public class JefeFinal : MonoBehaviour
 
     private bool dañoRecibidoEnEmbestida = false;
 
+    //bool para no ejecutar más de una courutina de ataque a la vez
     private bool atacando = false;
-
-    //private float tiempoActualEspera;
-    //private int estadoActual;
-
-    // Estados del jefe
-    //private const int DispararProyectil = 0;
-    //private const int Embestir = 1;
-    //private const int Mover = 2;
+    
 
     void Start()
     {
-        objetivo = puntoB;       
+        //Posición inicial
+        objetivo = puntoB;
+        
+        //Empieza con coroutine de movimiento y verifica si tiene que atacar
         StartCoroutine(Movimiento());
 
         StartCoroutine(VerificarAtaque());
     }
 
+    //Comprobar la colisión de las embestidas con las trampas
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trampas"))
@@ -54,9 +53,7 @@ public class JefeFinal : MonoBehaviour
                 dañoRecibidoEnEmbestida = true;
                 Debug.Log("Boss tocó una trampa! Vida restante: " + vida);
 
-                // Animación o efecto visual de daño (sin interrumpir embestida)
-                //miAnimator.SetTrigger("Daño");
-
+                //El boss se destruye al quedar con vida 0.
                 if (vida <= 0)
                 {
                     Debug.Log("El Boss ha muerto");
@@ -66,6 +63,7 @@ public class JefeFinal : MonoBehaviour
         }
     }
 
+    //Coroutina de movimiento
     private IEnumerator Movimiento()
     {
 
@@ -81,10 +79,11 @@ public class JefeFinal : MonoBehaviour
                 objetivo = (objetivo == puntoA) ? puntoB : puntoA;
             }
 
-            yield return null; // Espera al siguiente frame
+            yield return null; 
         }
     }
 
+    //Coroutina para verificar si está en posición de ataque cuando queda arriba del jugador
     private IEnumerator VerificarAtaque()
     {
         while (true)
@@ -108,19 +107,12 @@ public class JefeFinal : MonoBehaviour
                 }
             }
 
-            yield return null; // Revisa cada frame
+            yield return null; 
         }
     }
 
-    //private IEnumerator Disparar()
-    //{
-    //    for (int i = 0; i < 3; i++)
-    //    {
-    //        yield return new WaitForSeconds(0.5f);
-    //        Instantiate(prefabProyectil, puntoSpawnProyectil.position, Quaternion.identity);
-    //    }
-    //}
-
+    
+    //Coroutina para disparar un objeto proyectil del pool de proyectiles
     private IEnumerator Disparar()
     {
         for (int i = 0; i < 3; i++)
@@ -138,10 +130,10 @@ public class JefeFinal : MonoBehaviour
     }
 
 
-
+    //Coroutina para ejecutar la embestida
     private IEnumerator Embestida()
     {
-        dañoRecibidoEnEmbestida = false;
+        //dañoRecibidoEnEmbestida = false; // posible booleano para ejecutar animaciòn de daño
 
         float tiempoEmbestida = 2f;
         float tiempoInicio = Time.time;
@@ -150,13 +142,13 @@ public class JefeFinal : MonoBehaviour
         Vector2 posicionInicial = transform.position;
         Vector2 posicionObjetivo = new Vector2(transform.position.x, transform.position.y + velocidadEmbestida);
 
-        // Mover hacia adelante
+        // realizar caída
         while (Time.time < tiempoInicio + tiempoEmbestida / 2)
         {
             transform.position = Vector2.Lerp(posicionInicial, posicionObjetivo, (Time.time - tiempoInicio) / (tiempoEmbestida / 2));
             yield return null;
         }
-        // Mover hacia atrás (retroceso)
+        // realizar la subida
         tiempoInicio = Time.time;
         while (Time.time < tiempoInicio + tiempoEmbestida / 2)
         {

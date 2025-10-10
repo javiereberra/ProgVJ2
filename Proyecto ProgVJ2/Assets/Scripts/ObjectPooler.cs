@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    public GameObject pooledObject;
+    [Header("Configuración del Pool")]
+    
+    public GameObject pooledObject;    
     public int poolSize = 10;
 
     private List<GameObject> objectPool;

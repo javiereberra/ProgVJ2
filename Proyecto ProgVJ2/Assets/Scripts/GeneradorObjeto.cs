@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GeneradorObjeto : MonoBehaviour
 {
+    [Header("Invocaciones")]
     [SerializeField] private GameObject[] objetosPrefabs;
 
+    [Header("Configuración de las invocaciones")]
     [SerializeField]
     [Range(0.5f, 5f)]
     private float tiempoEspera;
@@ -29,6 +31,7 @@ public class GeneradorObjeto : MonoBehaviour
 
         GameObject enemigo = Instantiate(prefabAleatorio, transform.position, Quaternion.identity);
 
+        //Para obtener el booleano del volador y poder modificar el sentido
         EnemigoVolador ev = enemigo.GetComponent<EnemigoVolador>();
         ev.moverADerecha = moverADerechaPortal;
 

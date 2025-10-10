@@ -19,18 +19,20 @@ public class EnemigoVolador : MonoBehaviour
         float direccion = moverADerecha ? 1f : -1f;
         rb.velocity = new Vector2(velocidad * direccion, 0);
 
+        //para girar el sprite al cambiar de dirección
         GetComponent<SpriteRenderer>().flipX = moverADerecha;
 
         Destroy(gameObject, tiempoVida);
     }
 
+    //Destruir el gameObject al colisionar con player
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             
 
-            Destroy(gameObject); // se destruye al colisionar con el jugador
+            Destroy(gameObject);
         }
     }
 }
