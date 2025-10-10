@@ -133,7 +133,7 @@ public class JefeFinal : MonoBehaviour
     //Coroutina para ejecutar la embestida
     private IEnumerator Embestida()
     {
-        //dañoRecibidoEnEmbestida = false; // posible booleano para ejecutar animaciòn de daño
+        danioRecibidoEnEmbestida = false; // boleano para que no recibe muchos daños en una embestida
 
         float tiempoEmbestida = 2f;
         float tiempoInicio = Time.time;
