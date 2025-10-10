@@ -25,7 +25,7 @@ public class JefeFinal : MonoBehaviour
 
     private Transform objetivo;
 
-    private bool dañoRecibidoEnEmbestida = false;
+    private bool danioRecibidoEnEmbestida = false;
 
     //bool para no ejecutar más de una courutina de ataque a la vez
     private bool atacando = false;
@@ -47,10 +47,10 @@ public class JefeFinal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Trampas"))
         {
-            if (!dañoRecibidoEnEmbestida)
+            if (!danioRecibidoEnEmbestida)
             {
                 vida -= 1f;
-                dañoRecibidoEnEmbestida = true;
+                danioRecibidoEnEmbestida = true;
                 Debug.Log("Boss tocó una trampa! Vida restante: " + vida);
 
                 //El boss se destruye al quedar con vida 0.
